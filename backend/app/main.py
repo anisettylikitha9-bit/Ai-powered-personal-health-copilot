@@ -13,6 +13,14 @@ _root_dir = os.path.dirname(_backend_dir)
 for _p in [_backend_dir, _root_dir]:
     if _p not in sys.path:
         sys.path.insert(0, _p)
+
+try:
+    from dotenv import load_dotenv
+    _env_path = os.path.join(_root_dir, ".env")
+    if os.path.exists(_env_path):
+        load_dotenv(_env_path)
+except Exception:
+    pass
 from datetime import datetime, date
 from typing import Optional, List, Dict, Any
 
