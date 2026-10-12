@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+.venv/
+venv/
+ENV/
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+.vite/
+frontend/.vite/
+
+# Database & Uploads
+*.db
+*.db-shm
+*.db-wal
+*.sqlite3
+uploads/*
+!uploads/.gitkeep
+
+# Logs & OS generated
+*.log
+.DS_Store
+Thumbs.db

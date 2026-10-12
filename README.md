@@ -1,8 +1,8 @@
-# 🏥 HealthSaathi AI — Advanced AI Personal Health Copilot
+# 🏥 Health Copilot AI — Advanced AI Personal Health Copilot
 
-An intelligent, privacy-first, full-stack personal healthcare companion and clinical triage web application designed to empower individuals with safe, explainable health tracking and multilingual symptom education.
+An intelligent, privacy-first, full-stack personal healthcare companion and clinical triage web application designed to empower individuals with safe, explainable health tracking, interactive 3D biometric visualizations, and multilingual symptom education.
 
-Built with **React 19 + Vite**, **Tailwind CSS**, **React Router**, **Recharts**, **Lucide React**, **FastAPI**, **SQLAlchemy 2.0 ORM**, **Pydantic v2**, and **SQLite**.
+Built with **React 19 + Vite**, **Tailwind CSS**, **Three.js (WebGL 3D)**, **React Router**, **Recharts**, **Lucide React**, **FastAPI**, **SQLAlchemy 2.0 ORM**, **Pydantic v2**, and **SQLite**.
 
 **100% Functional Offline & Local**: Operates securely with a local SQLite database and conservative validated rule-based algorithms. Requires **zero paid APIs, zero API keys, and zero external cloud dependencies**, with optional local LLM integration support (e.g., Ollama).
 
@@ -12,11 +12,11 @@ Built with **React 19 + Vite**, **Tailwind CSS**, **React Router**, **Recharts**
 
 ### Frontend
 - **Framework**: React.js 19 with Vite 8
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS (Modern healthcare theme with teal `#00838f`, cyan, and clean slate palettes)
+- **3D Biometrics**: Three.js WebGL anatomical heartbeat telemetry and 3D bio-hologram canvas
 - **Routing**: React Router (HashRouter / Navigation routes)
 - **Charts & Visualization**: Recharts (Weekly & monthly hydration, sleep, exercise, and active day trends)
 - **Icons**: Lucide React
-- **3D Biometrics**: Three.js WebGL anatomical heartbeat telemetry and bio-hologram canvas
 
 ### Backend
 - **Framework**: FastAPI (Asynchronous REST API)
@@ -33,60 +33,56 @@ Built with **React 19 + Vite**, **Tailwind CSS**, **React Router**, **Recharts**
 
 ---
 
-## 🧭 2. Core Application Pages (9 Modules)
+## 🧭 2. Core Application Modules
 
-1. **Landing Page (`/` / `/landing`)**
-   - High-visibility medical emergency banner with direct **112** dialing.
-   - Interactive feature overview, clinical safeguards, offline privacy badges, and one-click demo launch.
+1. **Personal Health Dashboard (`/dashboard`)**
+   - **Emergency India Warning Bar**: High-visibility alert with direct one-click dialers for **Call 112 (India)** and **Ambulance: 108**.
+   - **Personalized Healthcare Hub**: Welcome status with quick access to *Log Vitals* and *Reports & PDFs*.
+   - **Interactive 3D Anatomical Suite**:
+     - **3D Heart Canvas**: Real-time WebGL particle heart pulsing with live BPM telemetry, rotatable camera, and multi-view modes (*3D Heart*, *DNA Helix*, *Dual Matrix*).
+     - **3D Biometric Hologram**: Concentric rotating holographic rings and wireframe core with live sync indicators (`Pulse`, `BP Target`, `Glucose`).
+   - **Key Metrics Row**: Habit Score (0–100), Vitals records count, active prescriptions, scheduled clinic appointments, and stored medical PDFs.
 
-2. **Login & Registration (`/login`)**
-   - Secure account registration and authentication.
-   - Interactive 3D WebGL biometrics demonstration and Instant Demo Access (`demouser`).
+2. **Health Profile & Privacy (`/profile`)**
+   - Manage baseline age, gender, height, weight, blood group, allergies, chronic conditions, and emergency contacts.
+   - Real-time WHO BMI calculation and classification.
+   - **Permanent Privacy Data Eraser**: One-click GDPR-style permanent deletion of all personal vitals, logs, chats, and documents.
 
-3. **Personal Health Dashboard (`/dashboard`)**
-   - Personalized greeting, Health Habit Score (0–100) with status labels.
-   - Real-time 3D anatomical cardiovascular canvas and bio-holographic vital visualizer.
-   - Quick log access for vitals, wellness, prescriptions, and reports.
+3. **Vitals Tracker (`/vitals`)**
+   - Track Heart Rate (BPM), Blood Pressure (Systolic/Diastolic), Blood Glucose (mg/dL), Body Temperature (°F), and SpO2.
+   - Anomaly detection flags alerting out-of-range physiological measurements.
 
 4. **AI Health Assistant (`/assistant`)**
    - Multilingual conversational assistant supporting **English**, **తెలుగు (Telugu)**, and **Roman Telugu** (e.g., *"Naaku jwaram ga undi"*, *"Explain dehydration in Telugu"*).
    - Voice speech-to-text dictation and real-time medical speech synthesis (text-to-speech).
    - Clickable relevant follow-up questions, non-prescriptive medication safety directive, and statutory medical disclaimer.
 
-5. **Emergency Triage System (`/triage`)**
+5. **Symptom Checker & Emergency Triage (`/triage` / `/symptoms`)**
    - **Tier 1 (Emergency Care Now)**: Severe breathing difficulty, stroke signs (F.A.S.T.), unconsciousness, chest pain, uncontrolled bleeding -> Prominently instructs to **call 112** without waiting for chatbot responses.
    - **Tier 2 (Prompt Medical Consultation)**: Persistent symptoms (>3 days), severe intensity, or multi-symptom clusters -> Physician examination within 24–48 hours.
    - **Tier 3 (General Self-Care Guidance)**: Mild, short-duration concerns with home hydration and rest monitoring.
 
-6. **Daily Wellness Tracker (`/wellness`)**
+6. **Medicine Reminders (`/medicines`)**
+   - Schedule daily prescriptions, dosage, timing, and food instructions (*Before Food / After Food*).
+   - Daily adherence tracking and checklist completion.
+
+7. **Doctor Appointments (`/appointments`)**
+   - Schedule specialist clinic visits, dates, doctor names, and consultation notes.
+
+8. **Daily Wellness Tracker (`/wellness`)**
    - Log daily water intake (ml), sleep duration (hours), exercise minutes & type, mood, and meals.
    - Interactive modal forms for **Add**, **Edit**, and **Delete** records.
    - Real-time habit scoring and personal goal progress indicators.
 
-7. **Explainable Wellness Intelligence & Analytics (`/analytics`)**
-   - Mathematical progression cards computed strictly from real saved entries.
-   - Every card explicitly details:
-     - **📊 Data used**: Explicit records analyzed (e.g., *"Activity records from two weeks (6 logged daily entries)"*).
-     - **⚙️ Rule applied**: Mathematical logic applied (e.g., *"Count days containing recorded exercise across 7-day comparative windows"*).
-     - **🎯 Result**: Quantifiable outcome (e.g., *"Your active days increased from 2 to 4"*).
-     - **⚠️ Limitation**: Transparent clinical caveat (*"Recorded activity is self-reported and not a complete measure of aerobic fitness"*).
-   - Recharts visual charts for Hydration, Sleep duration, Exercise minutes, and Active Days.
-   - Explicit empty state when no records exist (never invents measurements).
-
-8. **Chat History Archives (`/history`)**
-   - Chronological transcript of health questions, symptom evaluations, and recommendations.
-   - Real-time keyword filter search and permanent one-click conversation wipe.
-
-9. **Profile & Privacy Settings (`/profile`)**
-   - Manage baseline age, gender, height, weight, blood group, allergies, chronic conditions, and emergency contacts.
-   - Real-time WHO BMI calculation and classification.
-   - **Permanent Privacy Data Eraser**: One-click GDPR-style permanent deletion of all personal vitals, logs, chats, and documents.
+9. **Health Reports & Medical PDF Vault (`/reports`)**
+   - Upload and securely store clinical laboratory PDFs, diagnostic scans, and doctor prescriptions.
+   - Safe disk storage with one-click download, view, and deletion.
 
 ---
 
 ## 🇮🇳 3. Multilingual Support (Telugu + English)
 
-HealthSaathi AI provides complete native tri-lingual support:
+Health Copilot AI provides native tri-lingual support:
 - **English**: Full clinical documentation and guidance.
 - **తెలుగు (Telugu Script)**: Native Telugu health terms, instructions, and emergency alerts.
 - **Roman Telugu (Transliterated Telugu)**: Transliterated colloquial queries such as:
@@ -96,15 +92,13 @@ HealthSaathi AI provides complete native tri-lingual support:
 
 ---
 
-## 🚀 4. Run Instructions
+## 🚀 4. Quickstart Guide
 
 ### Prerequisites
 - **Node.js** (v18+) and **npm**
 - **Python** (v3.10+)
 
 ### Step 1: Start Backend (FastAPI)
-Open a terminal in the project directory:
-
 ```bash
 # 1. Activate Python virtual environment
 .\.venv\Scripts\activate          # Windows PowerShell / CMD
@@ -114,13 +108,11 @@ Open a terminal in the project directory:
 pip install -r requirements.txt
 
 # 3. Start the FastAPI server
-uvicorn backend.app.main:app --reload --port 8000
+python -m uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 > The API will be live at `http://127.0.0.1:8000` with interactive Swagger docs at `http://127.0.0.1:8000/docs`.
 
 ### Step 2: Start Frontend (React + Vite)
-Open a second terminal:
-
 ```bash
 # 1. Navigate to frontend folder
 cd frontend
@@ -137,77 +129,32 @@ npm run dev
 
 ## 🧪 5. Testing & Verification
 
-The repository includes an automated verification test suite verifying all 6 clinical and functional modules:
+The application includes comprehensive automated test suites:
 
 ```bash
+# Run backend clinical test suite
 .\.venv\Scripts\python.exe backend/test_healthsaathi.py
+
+# Run full integration test suite
+.\.venv\Scripts\python.exe test_suite.py
 ```
 
 ### Verified Test Results:
-```text
---- 1. Testing Emergency Triage Detection ---
-  [PASS] Emergency detected for 'severe chest pain and pressure...' -> Cardiac / Acute Chest Pain
-  [PASS] Emergency detected for 'difficulty breathing cannot br...' -> Severe Respiratory Distress
-  [PASS] Emergency detected for 'facial drooping and slurred sp...' -> Possible Stroke Warning Signs (F.A.S.T.)
-  [PASS] Emergency detected for 'unconscious passed out on the ...' -> Unconsciousness / Severe Syncope
-  [PASS] Emergency detected for 'severe bleeding coughing up bl...' -> Severe Uncontrolled Bleeding
-  [PASS] Tier 1 'Emergency care now' confirmed.
-  [PASS] Tier 2 'Prompt medical consultation' confirmed.
-  [PASS] Tier 3 'General self-care guidance' confirmed.
-
---- 2. Testing Multilingual Conversational Health Assistant ---
-  [PASS] 'I have a headache.' -> Correctly answered with follow-ups and disclaimer.
-  [PASS] 'Naaku jwaram ga undi.' -> Correctly identified in Roman Telugu.
-  [PASS] 'Explain dehydration in Telugu.' -> Provided Telugu clinical explanation.
-  [PASS] 'How can I improve my sleep?' -> Provided circadian sleep guidance.
-
---- 3. Testing Authentication & User Isolation ---
-  [PASS] User registered with ID: 21
-  [PASS] Duplicate username correctly rejected.
-  [PASS] Valid login succeeded.
-  [PASS] Invalid password correctly rejected.
-
---- 4. Testing Wellness Tracker CRUD Operations ---
-  [PASS] Created wellness log #204 for date 2026-10-10
-  [PASS] Retrieved 1 wellness logs for user.
-  [PASS] Updated wellness log successfully.
-  [PASS] Habit score calculated: 100/100 (Exceptional Habits)
-  [PASS] Deleted wellness log #204.
-
---- 5. Testing Explainable Wellness Intelligence with Real Data ---
-  [PASS] Explainable card verified: 'Your active days increased from 2 to 4 (2 additional active days).'
-         Data used: Activity records from two weeks (6 logged daily entries).
-         Rule applied: Count days containing recorded exercise (exercise_mins > 0) across 7-day comparative windows.
-         Limitation: Recorded activity is self-reported and not a complete measure of aerobic capacity or clinical fitness.
-
---- 6. Testing FastAPI REST API Endpoints ---
-  [PASS] GET /api/health -> 200 OK
-  [PASS] GET /api/translations -> 200 OK (en, te, te-roman)
-  [PASS] POST /api/chat -> 200 OK
-  [PASS] POST /api/triage -> 200 OK (Tier 1)
-  [PASS] POST /api/wellness -> 200 OK (created #211)
-  [PASS] GET /api/wellness -> 200 OK (7 logs returned)
-  [PASS] PUT /api/wellness/211 -> 200 OK
-  [PASS] DELETE /api/wellness/211 -> 200 OK
-  [PASS] GET /api/insights -> 200 OK
-  [PASS] GET /api/chat/history -> 200 OK
-
-============================================================
-SUCCESS: ALL 6 COMPREHENSIVE TEST SUITES PASSED FLAWLESSLY!
-============================================================
-```
+- **13/13 Integration Test Suites Passed** (Authentication, Vitals flags, 6-point symptom engine, PDF vault, Habitation scoring).
+- **6/6 Clinical Triage & REST API Suites Passed** (Emergency 112 routing, Multilingual Telugu responses, User isolation, SQLite ORM CRUD).
 
 ---
 
 ## 🔒 6. Security, Privacy & Medical Safety Principles
 
-1. **Non-Diagnostic Safety Guarantee**: HealthSaathi AI never provides definitive diagnoses or unverified disease labels. It structures educational information for clinical discussion.
+1. **Non-Diagnostic Safety Guarantee**: Health Copilot AI never provides definitive diagnoses or unverified disease labels. It structures educational information for clinical discussion.
 2. **Never Delays Emergency Care**: Tier 1 red flags immediately display India's **112** helpline with bold alerts, telling users **not** to wait for chatbot responses.
 3. **Absence of Keywords != Proof of Safety**: Conservative logic explicitly clarifies that lack of detected red flags does not guarantee benign condition.
 4. **Data Isolation**: SQLite tables enforce foreign-key cascading and parameterized SQLAlchemy queries.
-5. **No Data Broker Sharing**: All health logs, biometrics, and documents stay locally on the user's machine.
+5. **Zero Data Tracking**: All health logs, biometrics, and documents stay locally on the user's machine.
 
 ---
 
-## 👥 Authors & License
-Developed for HealthSaathi AI — Advanced AI Personal Health Copilot. Open educational and personal wellness tool.
+## 👥 Authors & Repository
+- **Repository**: [https://github.com/anisettylikitha9-bit/ai-powered-personal-health-copilot.git](https://github.com/anisettylikitha9-bit/ai-powered-personal-health-copilot.git)
+- **Application**: Health Copilot AI — Advanced AI Personal Health Copilot

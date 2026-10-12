@@ -1,0 +1,263 @@
+/* ==========================================================================
+   AI POWERED PERSONAL HEALTH COPILOT - PROFESSIONAL MEDICAL THEME
+   Palette: Medical Blue (#0284c7), Teal (#0d9488), White (#ffffff), Slate (#0f172a)
+   ========================================================================== */
+
+/* Main container polish */
+.main .block-container {
+    padding-top: 1.75rem;
+    padding-bottom: 2.5rem;
+    max-width: 1200px;
+}
+
+/* Global Typography & Background */
+body, [data-testid="stAppViewContainer"] {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #0f172a;
+    background-color: #f8fafc;
+}
+
+/* Top App Header Banner */
+.health-header {
+    background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+    color: white !important;
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.15), 0 4px 6px -4px rgba(2, 132, 199, 0.1);
+}
+.health-header h1, .health-header h2, .health-header p {
+    color: white !important;
+    margin: 0;
+}
+.health-header p {
+    opacity: 0.92;
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
+}
+
+/* Card Containers */
+.health-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.health-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07);
+}
+
+/* Stat Metric Cards */
+.metric-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #0284c7;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+.metric-box.teal {
+    border-left-color: #0d9488;
+}
+.metric-box.amber {
+    border-left-color: #f59e0b;
+}
+.metric-box.rose {
+    border-left-color: #f43f5e;
+}
+.metric-box.emerald {
+    border-left-color: #10b981;
+}
+.metric-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+.metric-value {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+}
+.metric-sub {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 0.25rem;
+}
+
+/* Emergency Alert Banner (India 112) */
+.emergency-banner {
+    background: #fef2f2;
+    border: 2px solid #ef4444;
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    color: #991b1b;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.1);
+}
+.emergency-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #b91c1c;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+}
+.emergency-phone {
+    font-size: 1.35rem;
+    font-weight: 900;
+    background: #ef4444;
+    color: white !important;
+    padding: 0.25rem 0.75rem;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 0.35rem;
+}
+
+/* Medical Disclaimer Box */
+.medical-disclaimer {
+    background: #f0fdfa;
+    border: 1px solid #99f6e4;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    color: #0f766e;
+    margin: 0.75rem 0 1.25rem 0;
+    line-height: 1.4;
+}
+
+/* Quick Action Badge & Button Enhancements */
+.quick-action-pill {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Status Badges */
+.badge-normal {
+    background-color: #dcfce7;
+    color: #15803d;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.badge-warning {
+    background-color: #fef3c7;
+    color: #b45309;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.badge-danger {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.badge-info {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Assistant Chat Bubbles */
+.chat-rule-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    background: #e2e8f0;
+    color: #475569;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+}
+
+/* Sidebar Customization */
+[data-testid="stSidebar"] {
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+}
+[data-testid="stSidebar"] .stButton > button {
+    width: 100%;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* Button overrides for professional feel */
+button[kind="primary"] {
+    background-color: #0284c7 !important;
+    border-color: #0284c7 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 4px rgba(2, 132, 199, 0.2);
+}
+button[kind="primary"]:hover {
+    background-color: #0369a1 !important;
+    border-color: #0369a1 !important;
+}
+
+/* Empty states */
+.empty-state {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    color: #64748b;
+    margin: 1rem 0;
+}
+.empty-state-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+.empty-state-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 0.25rem;
+}
+
+/* Creative App Logo Styling */
+.app-logo-badge {
+    display: inline-block;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px -4px rgba(2, 132, 199, 0.4), 0 0 18px rgba(13, 148, 136, 0.3);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+}
+.app-logo-badge:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 14px 32px -4px rgba(2, 132, 199, 0.6), 0 0 28px rgba(6, 182, 212, 0.45);
+}
+.app-logo-sidebar {
+    display: block;
+    margin: 0 auto 0.75rem auto;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px -3px rgba(2, 132, 199, 0.35), 0 0 14px rgba(13, 148, 136, 0.2);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.app-logo-sidebar:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 25px -3px rgba(2, 132, 199, 0.5), 0 0 20px rgba(6, 182, 212, 0.35);
+}
