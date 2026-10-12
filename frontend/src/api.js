@@ -1,5 +1,5 @@
 // frontend/src/api.js - Central API Client
-const API_BASE = '/api';
+const API_BASE = (import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace(/\/$/, '') : '') + '/api';
 
 export async function request(endpoint, options = {}) {
   const url = `${API_BASE}${endpoint}`;

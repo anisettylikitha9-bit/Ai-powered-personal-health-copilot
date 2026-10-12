@@ -694,6 +694,37 @@ def get_documents(user_id: int = Query(...), db: Session = Depends(get_db)):
     }
 
 
+# ==============================================================================
+# 12. FRONTEND PRODUCTION STATIC ASSETS & SPA SERVING (RENDER DEPLOYMENT)
+# ==============================================================================
+from fastapi.staticfiles import StaticFiles
+
+_frontend_dist = os.path.join(_root_dir, "frontend", "dist")
+if os.path.exists(_frontend_dist):
+    _assets_dir = os.path.join(_frontend_dist, "assets")
+    if os.path.exists(_assets_dir):
+        app.mount("/assets", StaticFiles(directory=_assets_dir), name="static_assets")
+
+    @app.get("/")
+    def serve_frontend_root():
+        index_file = os.path.join(_frontend_dist, "index.html")
+        if os.path.isfile(index_file):
+            return FileResponse(index_file)
+        return {"status": "healthy", "app": "Health Copilot AI"}
+
+    @app.get("/{full_path:path}")
+    def serve_frontend_spa(full_path: str):
+        if full_path.startswith("api"):
+            raise HTTPException(status_code=404, detail="API endpoint not found")
+        file_path = os.path.join(_frontend_dist, full_path)
+        if os.path.isfile(file_path):
+            return FileResponse(file_path)
+        index_file = os.path.join(_frontend_dist, "index.html")
+        if os.path.isfile(index_file):
+            return FileResponse(index_file)
+        raise HTTPException(status_code=404, detail="Page not found")
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
