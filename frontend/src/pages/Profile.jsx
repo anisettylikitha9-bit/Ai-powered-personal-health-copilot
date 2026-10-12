@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useLanguage } from '../context/LanguageContext';
 import { api } from '../api';
 import { User, Heart, Shield, CheckCircle2 } from 'lucide-react';
 
 export default function Profile() {
   const { user } = useAuth();
+  const { lang, setLang } = useLanguage();
   const [age, setAge] = useState(30);
   const [gender, setGender] = useState('Male');
   const [height, setHeight] = useState(175);
