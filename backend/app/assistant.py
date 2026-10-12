@@ -10,8 +10,12 @@ import re
 import urllib.request
 import json
 from typing import Dict, Any, List, Optional
-from app.emergency_triage import detect_emergency
-from app.language_support import get_disclaimer, get_text
+try:
+    from backend.app.emergency_triage import detect_emergency
+    from backend.app.language_support import get_disclaimer, get_text
+except ImportError:
+    from .emergency_triage import detect_emergency
+    from .language_support import get_disclaimer, get_text
 
 # ==============================================================================
 # CLINICAL LIFESTYLE & SYMPTOM KNOWLEDGE BASE

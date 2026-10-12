@@ -47,5 +47,8 @@ def get_db():
 
 def init_db():
     """Initializes tables using SQLAlchemy metadata."""
-    from app import models
+    try:
+        from backend.app import models
+    except ImportError:
+        from . import models
     Base.metadata.create_all(bind=engine)

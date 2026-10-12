@@ -10,8 +10,10 @@ Safety Requirements:
 """
 
 from typing import Dict, Any, List, Optional
-import re
-from app.language_support import get_text, get_disclaimer
+try:
+    from backend.app.language_support import get_text, get_disclaimer
+except ImportError:
+    from .language_support import get_text, get_disclaimer
 
 # ==============================================================================
 # TIER 1: EMERGENCY CARE NOW (RED-FLAG RULES - INDIA 112 / 108)

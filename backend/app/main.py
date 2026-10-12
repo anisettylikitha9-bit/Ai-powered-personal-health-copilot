@@ -30,26 +30,48 @@ from fastapi.responses import FileResponse, JSONResponse
 from sqlalchemy.orm import Session
 from sqlalchemy import desc
 
-from app.database import get_db, init_db
-from app.models import (
-    User, Profile, WellnessLog, WellnessGoal, VitalLog,
-    MedicineReminder, MedicineLog, Appointment, ChatMessage,
-    SymptomLog, MedicalDocument
-)
-from app.schemas import (
-    UserRegister, UserLogin, UserResponse,
-    ChatMessageRequest, ChatMessageResponse,
-    TriageRequest, TriageResponse,
-    WellnessCreateRequest, WellnessUpdateRequest, WellnessGoalsRequest,
-    VitalRequest, ProfileRequest, MedicineRequest, AppointmentRequest,
-    PrivacyWipeRequest
-)
-from app import auth
-from app import assistant
-from app import emergency_triage
-from app import wellness
-from app import analytics
-from app.language_support import TRANSLATIONS_MAP
+try:
+    from backend.app.database import get_db, init_db
+    from backend.app.models import (
+        User, Profile, WellnessLog, WellnessGoal, VitalLog,
+        MedicineReminder, MedicineLog, Appointment, ChatMessage,
+        SymptomLog, MedicalDocument
+    )
+    from backend.app.schemas import (
+        UserRegister, UserLogin, UserResponse,
+        ChatMessageRequest, ChatMessageResponse,
+        TriageRequest, TriageResponse,
+        WellnessCreateRequest, WellnessUpdateRequest, WellnessGoalsRequest,
+        VitalRequest, ProfileRequest, MedicineRequest, AppointmentRequest,
+        PrivacyWipeRequest
+    )
+    from backend.app import auth
+    from backend.app import assistant
+    from backend.app import emergency_triage
+    from backend.app import wellness
+    from backend.app import analytics
+    from backend.app.language_support import TRANSLATIONS_MAP
+except ImportError:
+    from .database import get_db, init_db
+    from .models import (
+        User, Profile, WellnessLog, WellnessGoal, VitalLog,
+        MedicineReminder, MedicineLog, Appointment, ChatMessage,
+        SymptomLog, MedicalDocument
+    )
+    from .schemas import (
+        UserRegister, UserLogin, UserResponse,
+        ChatMessageRequest, ChatMessageResponse,
+        TriageRequest, TriageResponse,
+        WellnessCreateRequest, WellnessUpdateRequest, WellnessGoalsRequest,
+        VitalRequest, ProfileRequest, MedicineRequest, AppointmentRequest,
+        PrivacyWipeRequest
+    )
+    from . import auth
+    from . import assistant
+    from . import emergency_triage
+    from . import wellness
+    from . import analytics
+    from .language_support import TRANSLATIONS_MAP
 
 # Initialize database schema
 init_db()

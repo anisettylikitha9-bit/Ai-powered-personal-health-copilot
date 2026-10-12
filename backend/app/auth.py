@@ -8,7 +8,10 @@ import hashlib
 import secrets
 from typing import Optional, Tuple, Dict, Any
 from sqlalchemy.orm import Session
-from app.models import User, Profile, WellnessGoal
+try:
+    from backend.app.models import User, Profile, WellnessGoal
+except ImportError:
+    from .models import User, Profile, WellnessGoal
 
 
 HASH_ITERATIONS = 100_000

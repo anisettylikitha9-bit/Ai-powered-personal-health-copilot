@@ -12,14 +12,24 @@ Tests:
 import sys
 import os
 
-# Add backend directory to sys.path
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# Ensure root and backend directories are on sys.path
+_backend_dir = os.path.dirname(os.path.abspath(__file__))
+_root_dir = os.path.dirname(_backend_dir)
+for _p in [_root_dir, _backend_dir]:
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from fastapi.testclient import TestClient
-from app.main import app
-from app.database import SessionLocal, init_db
-from app.models import User, WellnessLog, VitalLog
-from app import auth, emergency_triage, assistant, wellness, analytics
+try:
+    from backend.app.main import app
+    from backend.app.database import SessionLocal, init_db
+    from backend.app.models import User, WellnessLog, VitalLog
+    from backend.app import auth, emergency_triage, assistant, wellness, analytics
+except ImportError:
+    from app.main import app
+    from app.database import SessionLocal, init_db
+    from app.models import User, WellnessLog, VitalLog
+    from app import auth, emergency_triage, assistant, wellness, analytics
 
 client = TestClient(app)
 

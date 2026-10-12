@@ -11,7 +11,10 @@ from sqlalchemy import (
     ForeignKey, Boolean
 )
 from sqlalchemy.orm import relationship
-from app.database import Base
+try:
+    from backend.app.database import Base
+except ImportError:
+    from .database import Base
 
 
 class User(Base):

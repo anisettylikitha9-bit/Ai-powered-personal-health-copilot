@@ -15,7 +15,10 @@ from typing import Dict, Any, List
 from datetime import datetime, date, timedelta
 from sqlalchemy.orm import Session
 from sqlalchemy import desc
-from app.models import WellnessLog, VitalLog, WellnessGoal
+try:
+    from backend.app.models import WellnessLog, VitalLog, WellnessGoal
+except ImportError:
+    from .models import WellnessLog, VitalLog, WellnessGoal
 
 
 def generate_explainable_insights(db: Session, user_id: int) -> List[Dict[str, Any]]:

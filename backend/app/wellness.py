@@ -8,7 +8,10 @@ from typing import Dict, Any, List, Optional
 from datetime import datetime, date, timedelta
 from sqlalchemy.orm import Session
 from sqlalchemy import desc
-from app.models import WellnessLog, WellnessGoal
+try:
+    from backend.app.models import WellnessLog, WellnessGoal
+except ImportError:
+    from .models import WellnessLog, WellnessGoal
 
 
 def get_user_wellness_logs(db: Session, user_id: int, days: int = 30) -> List[WellnessLog]:
